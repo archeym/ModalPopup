@@ -9,17 +9,39 @@
 import UIKit
 
 class ViewController: UIViewController {
-
+    @IBOutlet weak var popupView: UIView!
+    @IBOutlet var mainView: UIView!
+    @IBOutlet weak var sasha: UIImageView!
+    
+    @IBOutlet weak var killImage: UIImageView!
+    @IBOutlet weak var centerPopupConstraint: NSLayoutConstraint!
     override func viewDidLoad() {
         super.viewDidLoad()
-        // Do any additional setup after loading the view, typically from a nib.
+        popupView.layer.cornerRadius = 10
+        popupView.layer.masksToBounds = true
+        killImage.alpha = 0.9
+        
+
+    }
+    @IBAction func showPopup(_ sender: Any) {
+        centerPopupConstraint.constant = 0
+        
+        UIView.animate(withDuration: 0.3, delay: 0, usingSpringWithDamping: 0.4, initialSpringVelocity: 0, options: .curveEaseOut, animations: {
+            self.view.layoutIfNeeded()
+            
+        }, completion: nil)
+        UIView.animate(withDuration: 0.3, animations: {
+            self.sasha.alpha = 1
+        })
     }
 
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
+    @IBAction func done(_ sender: Any) {
+        centerPopupConstraint.constant = -350
+        UIView.animate(withDuration: 0.2, animations: {
+            self.view.layoutIfNeeded()
+            self.sasha.alpha = 1
+        })
     }
-
-
+    
 }
 
