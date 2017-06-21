@@ -19,14 +19,12 @@ class ViewController: UIViewController {
         super.viewDidLoad()
         popupView.layer.cornerRadius = 10
         popupView.layer.masksToBounds = true
-        killImage.alpha = 0.9
-        
-
+        killImage.alpha = 0.8
     }
     @IBAction func showPopup(_ sender: Any) {
         centerPopupConstraint.constant = 0
         
-        UIView.animate(withDuration: 0.3, delay: 0, usingSpringWithDamping: 0.4, initialSpringVelocity: 0, options: .curveEaseOut, animations: {
+        UIView.animate(withDuration: 0.3, delay: 0, usingSpringWithDamping: 0.5, initialSpringVelocity: 0, options: .curveEaseOut, animations: {
             self.view.layoutIfNeeded()
             
         }, completion: nil)
@@ -42,6 +40,5 @@ class ViewController: UIViewController {
             self.sasha.alpha = 1
         })
     }
-    
 }
 
