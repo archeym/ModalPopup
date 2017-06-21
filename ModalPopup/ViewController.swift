@@ -19,7 +19,7 @@ class ViewController: UIViewController {
         super.viewDidLoad()
         popupView.layer.cornerRadius = 10
         popupView.layer.masksToBounds = true
-        killImage.alpha = 0.8
+        killImage.alpha = 0.7
     }
     @IBAction func showPopup(_ sender: Any) {
         centerPopupConstraint.constant = 0
